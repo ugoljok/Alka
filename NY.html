@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Документ без названия</title>
+<link rel="stylesheet" type="text/css" href="style_modal.css">
+</head>
+
+<body>
+
+<!-- окошко -------------------------------------------------------------------------------------------------------->
+<div class="ml-dialog form" id="form_currentPlayer">
+	<div class="ml-color-header">
+    	<img id="photo" src="http://cs622519.vk.me/v622519329/4cbd/BLT2-vQyN2Y.jpg"> <!-- фото игрока -->
+    	<h2 id="player_name">Олол Трололоев</h2>
+        <div id="player_position">69</div>
+    </div>
+    <div class="ml-body">
+   	 	<h3 align="center" id="player_kubik">sdfsdfsdf</h3>
+    	<p id="player_fant">fsdf sdfsdfsdfsdf</p>
+    </div>
+    <div class="btn_cont">
+    <button id="done" class="done_btn">Выполнено</button>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------>
+<!-- начало игры --------------------------------------------------------------------------------------------------->
+<div class="ml-dialog form" id="form_start">
+	<div class="ml-color-header">
+    	<img id="photo" src="photos/start.jpg"> <!-- фото при старте -->
+    	<h2 id="player_name">Привет. Я хочу сиграть с тобой в игру...</h2>
+    </div>
+    <div class="ml-body">
+    	<h3 align="center">Ну что, готов играть? Тогда жмакай на кнопку...</h3>
+    </div>
+    <div class="btn_cont">
+		<button id="startPlay" class="big_btn" >Начало игры</button> <!-- кнопка Начало игры -->
+	</div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------>
+<!-- бросаем кубик ------------------------------------------------------------------------------------------------->
+<div class="ml-dialog form" id="form_dice">
+	<div class="ml-color-header">
+    	<img id="photo" src="photos/start.jpg"> <!-- фото при старте -->
+    	<h2 id="dice_name">Бросай кости</h2>
+    </div>
+    <div class="ml-body"></div>
+	<div class="btn_cont">
+		<button id="dice" class="big_btn">Бросить кубик</button> <!-- кнопка Бросить кубик -->
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------>
+
+
+<div id="info_num"></div><br>
+<div id="info_text"></div><br>
+<img id="img" src='' /><br>
+<audio src="http://translate.google.com/translate_tts?ie=UTF-8tl=ru&prev=input" autoplay  id="au"></audio> <!-- говорилка -->
+<!-- игровое поле -->
+<div id="playfield"></div>
+<!-- подключае скрипты -->
+<script src="base.js"></script>
+<script src="func.js"></script>
+<script>
+var result;
+// показываем форму начала
+form.show("form_start");
+
+//начало игры
+document.getElementById("startPlay").onclick = function (){
+	// запись игроков в лс в начале игры
+	lsPlayers(player);
+	// Обнуляем у всех позиции
+	clearPosition();
+	form.show("form_dice");
+	initDice();
+	};
+// Бросаем кубик	
+document.getElementById("dice").onclick = function (){
+	form.show("form_currentPlayer");
+	result=kubik();
+	currentPlayer(result); // выводим данные текущего игрока
+	};	
+// перемещение текущего игрока на новыю позицию
+document.getElementById("done").onclick = function (){
+	//result=15;
+	form.show("form_dice");
+	playersMove();
+	initDice();
+	};
+	
+	
+	
+	
+	
+	
+	
+// вывод ячеек
+for (i=0; i<arrCell.length; i++){
+	var text = arrCell[i].text; // значение текста
+	console.log = text;
+	var playfield=document.getElementById("playfield");
+		var game_cell = document.createElement("div"); //общая ячейка
+			var text_cell = document.createTextNode(text); // текст ячейки
+		game_cell.appendChild(text_cell);
+			var img_cell = document.createElement("div"); // картинка ячейки
+				var img = document.createElement("img");
+				img.setAttribute("src","images/"+i+".png"); //путь к картинке
+				img.setAttribute("height",150);
+			img_cell.appendChild(img);
+		game_cell.appendChild(img_cell);
+	playfield.appendChild(game_cell);
+	//вывожу номер ячейки над всеми ячейками//
+	game_cell.onclick = (function (i){
+		return function(){
+			// вывод инфы по ячейке в див сверху
+			var text = arrCell[i].text;
+			document.getElementById("info_num").innerHTML = "Ячейка № "+i;
+			document.getElementById("info_text").innerHTML = text;
+			document.getElementById("img").src = "images/"+i+".png";
+			speak(text);	
+			};
+		})(i);
+};
+</script>
+
+
+</body>
+</html>
