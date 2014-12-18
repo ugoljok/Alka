@@ -1,11 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
-body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif}
+body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif; margin:0; padding:0; width:100%; height:100%;}
+
 .ml-dialog {
 	position:absolute;
 	z-index:5;
 	top:50%;
-	left:50%;	
+	left:50%;
 	height:400px;
 	margin-top:-220px;
 	width:600px;
@@ -14,7 +15,7 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	padding:0px;
 	background:rgba(255,255,255,.9);
 	padding-top:100px;
-	
+
 	}
 
 .ml-color-header {
@@ -32,7 +33,7 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	left:176px;
 	bottom:0;
 	color:#fff;
-	
+
 	}
 #player_position {
 	position:absolute;
@@ -48,8 +49,8 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	border-radius:50px;
 	line-height:50px; text-align:center;
 
-}	
-	
+}
+
 #photo {
 	width:125px;
 	height:125px;
@@ -61,11 +62,11 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	border-radius:130px;
 	margin:0;
 	padding:0;
-	 box-shadow:1px 1px 8px rgba(0,0,0,.3)}	
-	 
-	 
+	 box-shadow:1px 1px 8px rgba(0,0,0,.3)}
 
-	 
+
+
+
 .ml-body {
 	 padding:20px;
 	 padding-top:60px}
@@ -86,13 +87,56 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	color:#fff;
 	border:none;
 	border-radius:150px;
-	
+
 	transition:all 0.4s ease; }
 
 .big_btn:hover {
 	box-shadow:0px 5px 10px rgba(0,0,0,0.2);
 	transform:rotate(360deg) scale(1.19);
 	text-shadow:-1px -1px 1px #444}
-	
+
 .btn_cont {
 	text-align:center;}
+
+#playfield {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background: #795548;
+}
+
+.game_cell {
+	position: relative;
+	display:block;
+	width:7.7%;
+	height:9.6%;
+	font-size:11px;
+	padding: 0.05% 0.25% ;
+	margin: 0.05%;
+	float:left;
+	background: #fff;
+	transition:0.2s transform linear;
+}
+
+
+
+.game_cell:hover { transform: scale(2,2); z-index:2; box-shadow: 0px 0px 30px #454545; outline:1px solid #000; }
+
+.game_cell:nth-child(12n):hover  {  transform:scale(2,2) translateX(-25%);}
+.game_cell:nth-child(-n+12):hover   {  transform:scale(2,2)  translate(0,25%)}
+.game_cell:nth-child(12):hover   {  transform:scale(2,2)  translate(-25%,25%)}
+.game_cell:nth-child(12n+1):hover, .game_cell:nth-child(1):hover { transform: scale(2,2)  translate(25%,25%);}
+
+.text_cell { z-index: 1; position:absolute;
+	text-shadow:1px 1px 0 #fff, -1px 1px 0 #fff, 0px 1px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, -1px -1px 0 #fff ; }
+
+.img_cell {
+	width: 100%;
+	height: 80%;
+	background-size: contain!important;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}

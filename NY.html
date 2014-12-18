@@ -101,13 +101,19 @@ for (i=0; i<arrCell.length; i++){
 	console.log = text;
 	var playfield=document.getElementById("playfield");
 		var game_cell = document.createElement("div"); //общая ячейка
-			var text_cell = document.createTextNode(text); // текст ячейки
+			game_cell.className = "game_cell"
+			var text_cell = document.createElement('div'); // текст ячейки
+			text_cell.className = "text_cell"
+			text_cell.appendChild(document.createTextNode(text));
 		game_cell.appendChild(text_cell);
 			var img_cell = document.createElement("div"); // картинка ячейки
-				var img = document.createElement("img");
+				img_cell.className = "img_cell"
+				img_cell.style.background = "url(images/"+i+".png) no-repeat";
+
+				/*var img = document.createElement("img");
 				img.setAttribute("src","images/"+i+".png"); //путь к картинке
 				img.setAttribute("height",150);
-			img_cell.appendChild(img);
+			img_cell.appendChild(img);*/
 		game_cell.appendChild(img_cell);
 	playfield.appendChild(game_cell);
 	//вывожу номер ячейки над всеми ячейками//
