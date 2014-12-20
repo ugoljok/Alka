@@ -113,3 +113,10 @@ function initDice(){
 	document.getElementById("dice_name").innerHTML = obj_pl[obj_mv.id].name+" "+obj_pl[obj_mv.id].surname.charAt(0)+", твой ход, сучка!";
 	};
 	
+function getAllPosition(){
+	obj = JSON.parse(ls.get("players")); // получили объект
+	console.log(obj);
+	for (i=1; i<=objLength(obj); i++){
+		console.log(obj[i].name+";"+obj[i].position);
+		}
+	}

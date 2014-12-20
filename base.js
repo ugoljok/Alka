@@ -109,7 +109,7 @@
 {text:"Если выпадет 1, то ты выйграл. Если больше 1 -на СТАРТ",rel:"kamikadze"}];
 
 
-var player = {
+var players = {
 "1":{name:"Елена", surname:"Ботоногова", photo:"photos/boton.jpg", color:"#009688", position:0},
 "2":{name:"Борщ", surname:"Аристархович", photo:"photos/borsh.jpg", color:"#e91e63", position:0},
 "3":{name:"Николай", surname:"Федосеев", photo:"photos/koles.jpg", color:"#ff5722", position:0}
