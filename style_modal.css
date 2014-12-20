@@ -143,8 +143,9 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 }
 
 .number_cell {
+	display:inline;
 	position:absolute;
-	bottom: 0; right: 0;
+	bottom: 2px; right: 3px;
 	width: 30px; height: 30px;
 	color: #F44336;
 	font-family: Impact, Arial, Tahoma;
