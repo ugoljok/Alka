@@ -105,13 +105,14 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	width:100%;
 	height:100%;
 	background: #795548;
+	margin: .09px
 }
 
 .game_cell {
 	position: relative;
 	display:block;
 	width:7.7%;
-	height:9.6%;
+	height:10.6%;
 	font-size:11px;
 	padding: 0.05% 0.25% ;
 	margin: 0.05%;
@@ -128,7 +129,7 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 .game_cell:nth-child(-n+12):hover   {  transform:scale(2,2)  translate(0,25%)}
 .game_cell:nth-child(12):hover   {  transform:scale(2,2)  translate(-25%,25%)}
 .game_cell:nth-child(12n+1):hover, .game_cell:nth-child(1):hover { transform: scale(2,2)  translate(25%,25%);}
-
+.game_cell:nth-child(96n):hover   {  transform:scale(2,2)  translate(0,25%)}
 .text_cell { z-index: 1; position:absolute;
 	text-shadow:1px 1px 0 #fff, -1px 1px 0 #fff, 0px 1px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, -1px -1px 0 #fff ; }
 
