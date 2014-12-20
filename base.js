@@ -114,3 +114,5 @@ var players = {
 "2":{name:"Борщ", surname:"Аристархович", photo:"photos/borsh.jpg", color:"#e91e63", position:0},
 "3":{name:"Николай", surname:"Федосеев", photo:"photos/koles.jpg", color:"#ff5722", position:0}
 };
+
+var colors = ['#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FF9800','#FF5722','#795548','#9E9E9E','#76FF03','#00E676']
