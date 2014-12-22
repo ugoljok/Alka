@@ -1,0 +1,62 @@
+body, html {
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	background:rgba(0,0,0,0.5);
+	}
+
+#user_list {
+	position:absolute;
+	left:50%;
+	top:2%;
+	height:96%;
+	width:800px;
+	margin-left:-400px;
+	background:rgba(255,255,255,1);
+	 overflow-u:auto;}
+	 
+#nu_user_add {
+	border:none;padding:16px;
+	position:absolute; bottom:1%; left:50%;
+	margin-left:366px;
+	display:block;
+	width:24px; height:24px;
+	cursor: pointer;
+	border-radius: 999em;
+	font-size:24px;
+	text-decoration:none!important;
+	color:#FFF;
+	text-align:center;
+	box-shadow:1px 1px 5px rgba(0,0,0,0.2);
+	background: #2196F3; transition: all 0.32s linear;
+	 
+	}
+
+#nu_user_add:hover {background:#03A9F4; color:#FFF;  }
+#form_add_user {
+	position:absolute;
+	left:50%; top:50%;
+	margin-left:-320px;
+	margin-top:-240px;
+	width:640px;
+	height:480px;
+	box-shadow:0px 3px 9px rgba(0,0,0,0.3);
+	display:none;
+	
+	}
+
+#nu_header { height:128px; background:rgba(102,204,102,1); position:relative; left:0; top:0; width:100%;}
+#nu_photo_container { position:absolute; width:128px; height:128px; left:32px; top:32px; background:rgba(255,255,255,1); box-shadow:0px 3px 4px rgba(0,0,0,0.3); border-radius:128px;}
+#nu_header  h1 { position:absolute; bottom:8px; left:190px; margin:0; padding:0; font-family: Helvetica, Arial, sans-serif; color:#fff}
+#nu_name, #nu_surname { font-size:1.99em; padding:0.3em;   margin:0.3em;}
+
+#nu_body { text-align:center; padding:64px }
+#nu_okay { background:rgba(51,153,255,1); color:#fff;box-shadow:0px 3px 4px rgba(0,0,0,0.3); padding:20px 50px; margin:15px; border:none; }
+
+.nu_player { margin:24px; position:relative; }
+.nu_player_photo { position:absolute; height:68px; width:68px; border-radius:68px; top:-4px; left:-4px;  background:rgba(0,204,255,1); box-shadow:0px 1px 3px #999999;}
+.nu_player_name { box-shadow:0px 1px 7px #999999; height:60px; line-height:60px; margin-left:34px; padding-left:54px;  border-radius:16px; font-size:26px; font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;}
+.nu_player_kill { float:right; font-size:30px; color:rgba(204,204,204,1); text-decoration:none; display:block; position:absolute; right:22px; top:15px;}
+.nu_player_kill:hover { color:red}
+

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <link rel="stylesheet" href="start.css">
+        <title>Добавление игроков</title>
+    </head>
+    <body>
+    	
+        <!-- Список добавленных игроков -->
+        <div id="user_list">
+        
+        
+        	<div class="nu_player">
+            	<div class="nu_player_photo"></div>
+                <div class="nu_player_name"> Иван Иванов</div>
+                <a href="javascript:void(0)" class="nu_player_kill">×</a>
+            </div>
+         	<div class="nu_player">
+            	<div class="nu_player_photo"></div>
+                <div class="nu_player_name"> Петр Петров</div>
+                <a href="javascript:void(0)" class="nu_player_kill">×</a>
+            </div>       
+         	<div class="nu_player">
+            	<div class="nu_player_photo"></div>
+                <div class="nu_player_name"> Сидор Сидоров</div>
+                <a href="javascript:void(0)" class="nu_player_kill">×</a>
+            </div>          
+        </div>
+        <a href="javascript:void(0)" id="nu_user_add">+</a>
+        <!-- // Список добавленных игроков -->
+        
+        <!--  Форма добавления игрока -->
+        <div id="form_add_user">
+        	<div id="nu_header">
+            	<div id="nu_photo_container"></div>
+                <h1>Добавление</h1>
+            </div>
+        	<div id="nu_body">
+                <input type="text" id="nu_name" placeholder="Имя"><br>
+                <input type="text" id="nu_surname" placeholder="Фамилия"><br>
+                <button id="nu_okay">Окай</button>
+            </div>            
+        </div>
+        <!--  //Форма добавления игрока -->
+        
+    </body>
+</html>
