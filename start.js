@@ -72,6 +72,8 @@ document.getElementById("nu_okay").onclick = function (){
 			nu_player.appendChild(nu_player_kill);
 	user_list.appendChild(nu_player);
 	// скрываем форму
+	document.getElementById("nu_name").value='';
+	document.getElementById("nu_surname").value='';
 	document.getElementById('form_add_user').style.display = 'none'; 
 }
 
