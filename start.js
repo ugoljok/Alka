@@ -7,7 +7,8 @@ function showAllPlayers(){
 	if(!players){document.getElementById("user_list").innerHTML = 'Список игроков пуст';
 		}else{
 	var user_list=document.getElementById("user_list");
-	for(i=1; i<=objLength(players); i++){
+	i=1;
+	for(var i in players){
 		var nu_player = document.createElement("div"); //общая ячейка
 			nu_player.className = "nu_player";
 			var nu_player_photo = document.createElement("div");
@@ -23,8 +24,8 @@ function showAllPlayers(){
 				nu_player_kill.appendChild(document.createTextNode("×"));
 			nu_player.appendChild(nu_player_kill);
 	user_list.appendChild(nu_player);
-	};
-		};// конец if
+	i++;};
+	};// конец if
 };
 
 
@@ -51,7 +52,9 @@ document.getElementById("nu_okay").onclick = function (){
 	if(!players){
 		var players=new Object();
 	};
-	i=objLength(players)+1;
+	//i=objLength(players)+1;
+	//id Игрока по дате
+	i=Math.round((new Date().getTime())/1000);  
 	players[i] = new Object();
 	players[i].name=nu_name;
 	players[i].surname=nu_surname;
@@ -82,8 +85,16 @@ document.getElementById("nu_okay").onclick = function (){
 	document.getElementById('form_add_user').style.display = 'none'; 
 }
 
-function killPlayer(players_id) {
-	var players = JSON.parse(ls.get("players")); // получили объект
-	//delete players[players_id];
-	//ls.set ("players",JSON.stringify(players)); // записываем новые данные в лс
-	};
+function killPlayer(id){
+	if(confirm("И не жалко убивать людей-то?")){
+		var players = JSON.parse(ls.get("players"));
+		if(delete players[id.toString()]){
+			ls.set ("players",JSON.stringify(players));
+			alert("Дело сделано, убийца...");
+			showAllPlayers();
+		}else {
+			alert("До он бессмертен!!!!!")
+		};
+		
+	}
+}
