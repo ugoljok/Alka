@@ -84,7 +84,7 @@ document.getElementById("nu_okay").onclick = function (){
 	document.getElementById("nu_surname").value='';
 	document.getElementById('form_add_user').style.display = 'none'; 
 }
-
+// удаление игрока
 function killPlayer(id){
 	if(confirm("И не жалко убивать людей-то?")){
 		var players = JSON.parse(ls.get("players"));
@@ -95,6 +95,5 @@ function killPlayer(id){
 		}else {
 			alert("До он бессмертен!!!!!")
 		};
-		
 	}
 }
