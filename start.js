@@ -1,7 +1,11 @@
+//ls.clear();
 showAllPlayers();
 //выводим всех уже имеющихся игроков
 function showAllPlayers(){
+	document.getElementById("user_list").innerHTML = '';
 	var players = JSON.parse(ls.get("players")); // получили объект
+	if(!players){document.getElementById("user_list").innerHTML = 'Список игроков пуст';
+		}else{
 	var user_list=document.getElementById("user_list");
 	for(i=1; i<=objLength(players); i++){
 		var nu_player = document.createElement("div"); //общая ячейка
@@ -20,6 +24,7 @@ function showAllPlayers(){
 			nu_player.appendChild(nu_player_kill);
 	user_list.appendChild(nu_player);
 	};
+		};// конец if
 };
 
 
@@ -77,6 +82,8 @@ document.getElementById("nu_okay").onclick = function (){
 	document.getElementById('form_add_user').style.display = 'none'; 
 }
 
-function killPlayer(playesr_id) {
-	
+function killPlayer(players_id) {
+	var players = JSON.parse(ls.get("players")); // получили объект
+	//delete players[players_id];
+	//ls.set ("players",JSON.stringify(players)); // записываем новые данные в лс
 	};
