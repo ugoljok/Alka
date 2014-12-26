@@ -51,8 +51,11 @@ body, html {
 #nu_header  h1 { position:absolute; bottom:8px; left:190px; margin:0; padding:0; font-family: Helvetica, Arial, sans-serif; color:#fff}
 #nu_name, #nu_surname { font-size:1.99em; padding:0.3em;   margin:0.3em;}
 
-#nu_body { text-align:center; padding:64px }
+#nu_body { text-align:center; padding:64px; padding-bottom:0; background:#fff; }
 #nu_okay { background:rgba(51,153,255,1); color:#fff;box-shadow:0px 3px 4px rgba(0,0,0,0.3); padding:20px 50px; margin:15px; border:none; }
+
+
+#nu_photo_canvas, #nu_photo_img, #nu_photo_video { display:none;}
 
 .nu_player { margin:24px; position:relative; }
 .nu_player_photo { position:absolute; height:68px; width:68px; border-radius:68px; top:-4px; left:-4px;  background:rgba(0,204,255,1); box-shadow:0px 1px 3px #999999;}
