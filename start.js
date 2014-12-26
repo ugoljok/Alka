@@ -37,7 +37,7 @@ document.getElementById('nu_user_add').onclick = function(){
 // выбор цвета из массива
 function rndColor(colors)
 {
-  var  first = 0;
+  var first = 0;
   var last = colors.length;
   rndNum=Math.floor( Math.random() * (last - first + 1) ) + first;
   var rndColor=colors[rndNum];
