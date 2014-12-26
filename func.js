@@ -93,8 +93,8 @@ function playersMove(){
 				if(parseInt(arrCell[cell_index].rel)==0){position_last=0;}
 				if(parseInt(arrCell[cell_index].rel)==34){position_last = 34;}
 				if(parseInt(arrCell[cell_index].rel)==60){position_last = 60;}
-				if(arrCell[position_first].rel=="pass"){position_last = position_first;}
-				if(arrCell[position_first].rel=="kamikadze"){
+				if(arrCell[cell_index].rel=="pass"){position_last = position_first;}
+				if(arrCell[cell_index].rel=="kamikadze"){
 					if(result>1){position_last=0;}else{
 						// у нас есть победитель!
 						alert("Ты выиграл!!!");
