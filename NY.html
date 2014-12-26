@@ -62,14 +62,14 @@
 <script src="base.js"></script>
 <script src="func.js"></script>
 <script>
-var result;
+var result; // переменная
 // показываем форму начала
 form.show("form_start");
 
 //начало игры
 document.getElementById("startPlay").onclick = function (){
 	// запись игроков в лс в начале игры
-	lsPlayers(player);
+	//.............................................lsPlayers(player);
 	// Обнуляем у всех позиции
 	clearPosition();
 	form.show("form_dice");
@@ -87,11 +87,11 @@ document.getElementById("done").onclick = function (){
 	form.show("form_dice");
 	playersMove();
 	initDice();
-	getAllPosition();
+	//getAllPosition();
 	};
 	
 // вывод ячеек
-for (i=0; i<arrCell.length; i++){
+for (i=0; i<=arrCell.length; i++){
 	var text = arrCell[i].text; // значение текста
 	console.log = text;
 	var playfield=document.getElementById("playfield");
