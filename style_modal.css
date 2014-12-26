@@ -11,10 +11,17 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	margin-top:-220px;
 	width:600px;
 	margin-left:-300px;
-	box-shadow:0px 7px 30px rgba(0,0,0,.2);
+	box-shadow:	0px 0px 25px rgba(0,0,0,.7),
+	
+				0px 0px 500px #fff,
+				0px 0px 500px #fff, 
+				0px 0px 500px #fff, 
+				0px 0px 500px #fff, 
+				0px 0px 500px #fff;
 	padding:0px;
-	background:rgba(255,255,255,.9);
+	background:rgba(255,255,255,1);
 	padding-top:100px;
+	/*outline: 1px solid #333;*/
 
 	}
 
@@ -88,12 +95,16 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	border:none;
 	border-radius:150px;
 
-	transition:all 0.4s ease; }
+	transition:all 0.4s ease;
+	position:absolute; left:50%; margin-left:-75px;
+	outline:none;
+	}
 
 .big_btn:hover {
 	box-shadow:0px 5px 10px rgba(0,0,0,0.2);
 	transform:rotate(360deg) scale(1.19);
-	text-shadow:-1px -1px 1px #444}
+	text-shadow:-1px -1px 1px #444;
+	cursor:pointer;}
 
 .btn_cont {
 	text-align:center;}
@@ -150,3 +161,59 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	font-family: Impact, Arial, Tahoma;
 	text-align: right;
 }
+
+#player_fant { text-align:center; font-size:1.4em; padding:0 15px; text-shadow:0px 1px 1px rgba(1,1,1,0.1);}
+
+
+
+@-webkit-keyframes spaceboots {
+	0%   { -webkit-transform: translate(2px, 1px)   rotate(0deg); }
+	10%  { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20%  { -webkit-transform: translate(-3px, 0px)  rotate(1deg); }
+	30%  { -webkit-transform: translate(0px, 2px)   rotate(0deg); }
+	40%  { -webkit-transform: translate(1px, -1px)  rotate(1deg); }
+	50%  { -webkit-transform: translate(-1px, 1px)  rotate(-1deg); }
+	60%  { -webkit-transform: translate(-3px, -2px)  rotate(0deg); }
+	70%  { -webkit-transform: translate(2px, 1px)   rotate(-1deg); }
+	80%  { -webkit-transform: translate(-1px, -2px) rotate(1deg); }
+	90%  { -webkit-transform: translate(2px, -1px)   rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px)  rotate(-1deg); }
+}
+.done_btn {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: bottom;
+	-webkit-user-select: none;
+	text-decoration: none;
+	color: #FFFFFF;
+	background-color: #2196F3;
+	text-align: center;
+	letter-spacing: 0.8px;
+	margin-bottom: 15px;
+	padding: 0.5em 2rem;
+	border-radius: 2px;
+	background-clip: padding-box;
+	text-transform: uppercase;
+	border: none;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	display:inline-block;
+	position:relative;
+}
+
+.done_btn:hover, .done_btn:focus {
+/*
+	-webkit-animation-name: 'spaceboots';
+	-webkit-animation-duration: 0.3s;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+*/
+}
+
+
+
+
+
+
