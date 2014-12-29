@@ -47,7 +47,7 @@ function clearPosition (){
 	obj = JSON.parse(ls.get("players")); // получили объект
 	var i=1;
 	for (i in obj){
-		obj[i].position = 0; // обнуление позиций
+		obj[i].position = 1; // обнуление позиций
 		i++;
 		}
 	ls.set ("players",JSON.stringify(obj));
@@ -77,6 +77,10 @@ function currentPlayer(result){
 	document.getElementById("player_position").innerHTML = position_first; //выводим позицию в окно
 	document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно
 	document.getElementById("player_fant").innerHTML = "Задание: "+arrCell[cell_index].text; //выводим выпавший фант в окно
+	speak(getPlayerByIndex(obj_pl,obj_mv.id).name+", "+arrCell[cell_index].text); // говорилка
+	document.getElementById("color-header_player").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
+	// вывод картинки из ячейки
+	document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/'+cell_index+'.png) 0% 100% no-repeat';
 };
 
 // перевод позиции текущего игрока
@@ -90,7 +94,7 @@ function playersMove(){
 	if(arrCell[cell_index].step){
 		position_last = position_first+parseInt(arrCell[cell_index].step);
 		}else if(arrCell[cell_index].rel){// если есть ссылка на конкретную ячейку
-				if(parseInt(arrCell[cell_index].rel)==0){position_last=0;}
+				if(parseInt(arrCell[cell_index].rel)==0){position_last=1;}
 				if(parseInt(arrCell[cell_index].rel)==34){position_last = 34;}
 				if(parseInt(arrCell[cell_index].rel)==60){position_last = 60;}
 				if(arrCell[cell_index].rel=="pass"){position_last = position_first;}
@@ -137,6 +141,7 @@ function initDice(){
 	var surname = getPlayerByIndex(obj_pl,obj_mv.id).surname;
 	//alert(name);
 	document.getElementById("dice_name").innerHTML = name+" "+surname.charAt(0)+", твой ход, сучка!";
+	document.getElementById("color-header_kosti").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
 	};
 /*	
 function getAllPosition(){
