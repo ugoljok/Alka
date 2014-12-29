@@ -78,6 +78,7 @@ function currentPlayer(result){
 	document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно
 	document.getElementById("player_fant").innerHTML = "Задание: "+arrCell[cell_index].text; //выводим выпавший фант в окно
 	speak(getPlayerByIndex(obj_pl,obj_mv.id).name+", "+arrCell[cell_index].text); // говорилка
+	document.getElementById("color-header_player").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
 };
 
 // перевод позиции текущего игрока
@@ -138,6 +139,7 @@ function initDice(){
 	var surname = getPlayerByIndex(obj_pl,obj_mv.id).surname;
 	//alert(name);
 	document.getElementById("dice_name").innerHTML = name+" "+surname.charAt(0)+", твой ход, сучка!";
+	document.getElementById("color-header_kosti").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
 	};
 /*	
 function getAllPosition(){
