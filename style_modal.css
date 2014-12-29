@@ -22,7 +22,6 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 	background:rgba(255,255,255,1);
 	padding-top:100px;
 	/*outline: 1px solid #333;*/
-
 	}
 
 .ml-color-header {
@@ -76,7 +75,10 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 
 .ml-body {
 	 padding:20px;
-	 padding-top:60px}
+	 padding-top:60px;
+	 background-color:rgba(255,255,255,0.8);
+	 
+	 }
 	 /*
 .ml-body:before {
 	display:block;
