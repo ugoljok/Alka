@@ -79,6 +79,8 @@ function currentPlayer(result){
 	document.getElementById("player_fant").innerHTML = "Задание: "+arrCell[cell_index].text; //выводим выпавший фант в окно
 	speak(getPlayerByIndex(obj_pl,obj_mv.id).name+", "+arrCell[cell_index].text); // говорилка
 	document.getElementById("color-header_player").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
+	// вывод картинки из ячейки!!!!!!!!добавить стилей!!!для cell_img
+	document.getElementById("cell_img").src = "images/"+cell_index+".png";
 };
 
 // перевод позиции текущего игрока
