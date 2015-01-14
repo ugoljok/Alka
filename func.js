@@ -70,7 +70,7 @@ function currentPlayer(result){
 	obj_pl = JSON.parse(ls.get("players")); // получаем игроков
 	obj_mv = JSON.parse(ls.get("move")); // получаем id текущего игрока
 	var position_first = getPlayerByIndex(obj_pl,obj_mv.id).position; // получаем текущую позицию текущего игрока
-	var cell_index = position_first+result-1; // индекс задания
+	var cell_index = position_first+result-1; // индекс задания	
 	// выводим инфу на форму
 	document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
 	document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
@@ -90,16 +90,18 @@ function playersMove(){
 	var position_first = getPlayerByIndex(obj_pl,obj_mv.id).position; // получаем текущую позицию текущего игрока
 	var cell_index = position_first+result-1; // индекс задания
 	var position_last;
+
 	// если указано на сколько клеток надо идти вперед\назад
 	if(arrCell[cell_index].step){
 		position_last = position_first+parseInt(arrCell[cell_index].step);
 		}else if(arrCell[cell_index].rel){// если есть ссылка на конкретную ячейку
-				if(parseInt(arrCell[cell_index].rel)==0){position_last=1;}
+				if(arrCell[cell_index].rel=="start"){position_last=1;}
 				if(parseInt(arrCell[cell_index].rel)==34){position_last = 34;}
+				if(parseInt(arrCell[cell_index].rel)==22){position_last = 22;}
 				if(parseInt(arrCell[cell_index].rel)==60){position_last = 60;}
 				if(arrCell[cell_index].rel=="pass"){position_last = position_first;}
 				if(arrCell[cell_index].rel=="kamikadze"){
-					if(result>1){position_last=0;}else{
+					if(result>1){position_last=1;}else{
 						// у нас есть победитель!
 						alert("Ты выиграл!!!");
 						position_last=position_first;

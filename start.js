@@ -60,7 +60,7 @@ document.getElementById("nu_okay").onclick = function (){
 	players[i].surname=nu_surname;
 	players[i].photo = "photos/boton.jpg";
 	players[i].color = rndColor(colors);
-	players[i].position = 0;
+	players[i].position = 1;
 	ls.set ("players",JSON.stringify(players)); // записываем новые данные в лс
 	// выводим добавленного игрока на форму
 	var user_list=document.getElementById("user_list");
