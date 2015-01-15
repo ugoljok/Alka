@@ -98,48 +98,61 @@ function currentPlayer(result){
 
 // перевод позиции текущего игрока
 function playersMove(){
+	
 	players = JSON.parse(ls.get("players")); // получаем игроков
 	obj_mv = JSON.parse(ls.get("move")); // получаем id текущего игрока
 	var position_first = getPlayerByIndex(obj_pl,obj_mv.id).position; // получаем текущую позицию текущего игрока
 	var cell_index = position_first+result-1; // индекс задания
-	var position_last;
-if((cell_index+1)>parseInt(arrCell.length)){
-	// Удалит игрока и запишит в лс обьект без текщего игрока
-	ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
-	}else{
-	// если указано на сколько клеток надо идти вперед\назад
-	if(arrCell[cell_index].step){
-		position_last = position_first+parseInt(arrCell[cell_index].step);
-		}else if(arrCell[cell_index].rel){// если есть ссылка на конкретную ячейку
-				if(arrCell[cell_index].rel=="start"){position_last=1;}
-				if(parseInt(arrCell[cell_index].rel)==34){position_last = 34;}
-				if(parseInt(arrCell[cell_index].rel)==22){position_last = 22;}
-				if(parseInt(arrCell[cell_index].rel)==60){position_last = 60;}
-				if(arrCell[cell_index].rel=="pass"){position_last = position_first;}
-				if(arrCell[cell_index].rel=="kamikadze"){
-					if(parseInt(result)>1){position_last=1; alert ("Неудачник! Топай на старт!)))")}else{
-						// у нас есть победитель!
-						alert("Поздравляю! Ты добрался до финиша! Можешь расслабиться и отдохнуть;)");
-						position_last=position_first;
-						// Удалит игрока и запишит в лс обьект без текщего игрока
-						ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
-						obj_pl = JSON.parse(ls.get("players")); // получаем игроков
-						};
-					};
-				}else{
-					position_last = position_first+result; // получаем новую позицию текущего игрока
-					};
+
+
 	
-	getPlayerByIndex(obj_pl,obj_mv.id).position = position_last; // присваиваем новое значение
-	ls.set ("players",JSON.stringify(obj_pl)); // записываем новые данные в лс
-	};
-	//если дошли до последнего id игрока возвращаем значение текщего игрока в 1, если нет +1 к id
-	if(obj_mv.id<objLength(obj_pl)-1){
-		obj_mv.id++;
+	if((cell_index+1) > parseInt(arrCell.length)){
+		console.log("Позиция игрока", (cell_index+1), " выходит за пределы игрового поля. Удаляем игрока");
+		// Удалит игрока и запишит в лс обьект без текщего игрока
+		ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
 	}else{
-		obj_mv.id=0;
+		var position_last;
+		// если указано на сколько клеток надо идти вперед\назад
+		if(arrCell[cell_index].step){
+			position_last = position_first+parseInt(arrCell[cell_index].step);
+		}else if(arrCell[cell_index].rel){// если есть ссылка на конкретную ячейку
+			if(arrCell[cell_index].rel=="start"){position_last=1;}
+			if(parseInt(arrCell[cell_index].rel)==34){position_last = 34;}
+			if(parseInt(arrCell[cell_index].rel)==22){position_last = 22;}
+			if(parseInt(arrCell[cell_index].rel)==60){position_last = 60;}
+			if(arrCell[cell_index].rel=="pass"){position_last = position_first;}
+			if(arrCell[cell_index].rel=="kamikadze"){
+				if(parseInt(result)>1){
+					position_last=1;
+					alert ("Неудачник! Топай на старт!)))")
+				}else{
+					// у нас есть победитель!
+					alert("Поздравляю! Ты добрался до финиша! Можешь расслабиться и отдохнуть;)");
+					position_last=position_first;
+					// Удалит игрока и запишит в лс обьект без текщего игрока
+					ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
+					obj_pl = JSON.parse(ls.get("players")); // получаем игроков
+				};
+			};
+		}else{
+			position_last = position_first+result; // получаем новую позицию текущего игрока
 		};
-	ls.set ("move",JSON.stringify(obj_mv)); // записываем новые данные в лс
+	
+		getPlayerByIndex(obj_pl,obj_mv.id).position = position_last; // присваиваем новое значение
+		ls.set ("players",JSON.stringify(obj_pl)); // записываем новые данные в лс
+		
+		//если дошли до последнего id игрока возвращаем значение текщего игрока в 1, если нет +1 к id
+		if(obj_mv.id<objLength(obj_pl)-1){
+			obj_mv.id++;
+		}else{
+			obj_mv.id=0;
+		};
+		ls.set ("move",JSON.stringify(obj_mv)); // записываем новые данные в лс
+	};
+	
+	console.log("Игрок", obj_mv.id, "    Кубик:",result,"   Позиция:", position_first, " -> ", position_last || (cell_index+1));
+
+	
 };
 
 //показать\скрыть форму
