@@ -90,7 +90,7 @@ function playersMove(){
 	var position_first = getPlayerByIndex(obj_pl,obj_mv.id).position; // получаем текущую позицию текущего игрока
 	var cell_index = position_first+result-1; // индекс задания
 	var position_last;
-
+	
 	// если указано на сколько клеток надо идти вперед\назад
 	if(arrCell[cell_index].step){
 		position_last = position_first+parseInt(arrCell[cell_index].step);
@@ -101,9 +101,9 @@ function playersMove(){
 				if(parseInt(arrCell[cell_index].rel)==60){position_last = 60;}
 				if(arrCell[cell_index].rel=="pass"){position_last = position_first;}
 				if(arrCell[cell_index].rel=="kamikadze"){
-					if(result>1){position_last=1;}else{
+					if(parseInt(result)>1){position_last=1; alert ("Неудачник! Топай на старт!)))")}else{
 						// у нас есть победитель!
-						alert("Ты выиграл!!!");
+						alert("Поздравляю! Ты добрался до финиша! Можешь расслаюиться и отдохнуть;)");
 						position_last=position_first;
 						};
 					};
