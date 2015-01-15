@@ -16,7 +16,7 @@ body, html {
 	background:rgba(255,255,255,1);
 	 overflow-u:auto;}
 	 
-#nu_user_add {
+#nu_user_add, #nu_user_kill_all, #nu_play {
 	border:none;padding:16px;
 	position:absolute; bottom:1%; left:50%;
 	margin-left:366px;
@@ -32,6 +32,18 @@ body, html {
 	background: #2196F3; transition: all 0.32s linear;
 	 
 	}
+
+#nu_play { margin-left:-60px; width:120px; background:#4CAF50; font-family:Tahoma, sans-serif; font-size:22px; line-height:24px; }
+ #nu_play:hover { text-shadow:0 1px 0px rgba(0,0,0,0.3)} 
+#nu_user_kill_all {
+
+	bottom:1%;
+	background:#F44336;
+	transform:rotate(45deg);
+	margin-left:-422px;
+	opacity:0.2;
+	}
+#nu_user_kill_all:hover { opacity:0.99}	
 
 #nu_user_add:hover {background:#03A9F4; color:#FFF;  }
 #form_add_user {
