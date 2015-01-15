@@ -80,6 +80,8 @@ function currentPlayer(result){
 		document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно 
 		document.getElementById("player_fant").innerHTML = "Поздравляю! Ты добрался до финиша! Можешь расслабиться и отдохнуть;)";
 		document.getElementById("color-header_player").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
+		// вывод картинки из победителя
+		document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/win.jpg) 0% 100% no-repeat';
 	}else{
 	// выводим инфу на форму
 	document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
@@ -104,7 +106,6 @@ function playersMove(){
 if((cell_index+1)>parseInt(arrCell.length)){
 	// Удалит игрока и запишит в лс обьект без текщего игрока
 	ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
-	obj_pl = JSON.parse(ls.get("players")); // получаем игроков
 	}else{
 	// если указано на сколько клеток надо идти вперед\назад
 	if(arrCell[cell_index].step){
@@ -128,9 +129,10 @@ if((cell_index+1)>parseInt(arrCell.length)){
 				}else{
 					position_last = position_first+result; // получаем новую позицию текущего игрока
 					};
-	};
+	
 	getPlayerByIndex(obj_pl,obj_mv.id).position = position_last; // присваиваем новое значение
 	ls.set ("players",JSON.stringify(obj_pl)); // записываем новые данные в лс
+	};
 	//если дошли до последнего id игрока возвращаем значение текщего игрока в 1, если нет +1 к id
 	if(obj_mv.id<objLength(obj_pl)-1){
 		obj_mv.id++;
