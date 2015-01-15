@@ -102,9 +102,9 @@ function playersMove(){
 	var cell_index = position_first+result-1; // индекс задания
 	var position_last;
 if((cell_index+1)>parseInt(arrCell.length)){
-	// Удаление игрока
-	//delete players[id.toString()];
-	//ls.set ("players",JSON.stringify(obj_pl));
+	// Удалит игрока и запишит в лс обьект без текщего игрока
+	ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
+	obj_pl = JSON.parse(ls.get("players")); // получаем игроков
 	}else{
 	// если указано на сколько клеток надо идти вперед\назад
 	if(arrCell[cell_index].step){
@@ -120,6 +120,9 @@ if((cell_index+1)>parseInt(arrCell.length)){
 						// у нас есть победитель!
 						alert("Поздравляю! Ты добрался до финиша! Можешь расслабиться и отдохнуть;)");
 						position_last=position_first;
+						// Удалит игрока и запишит в лс обьект без текщего игрока
+						ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
+						obj_pl = JSON.parse(ls.get("players")); // получаем игроков
 						};
 					};
 				}else{
@@ -176,3 +179,11 @@ for(var k in obj){
 if(i===index) return obj[k];
 i++;
 }}
+
+// удаление игрока по индексу
+function delPlayerByIndex(obj, index){
+var i=0;
+for(var k in obj){
+if(i===index){delete obj[k]; return obj; };
+i++;
+}};
