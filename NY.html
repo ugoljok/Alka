@@ -68,10 +68,18 @@ form.show("form_start");
 
 //начало игры
 document.getElementById("startPlay").onclick = function (){
-	// запись игроков в лс в начале игры
-	//.............................................lsPlayers(player);
 	// Обнуляем у всех позиции
 	clearPosition();
+	////////////////////////////////////////////////////
+	// устанавлиеваем дивы для фишек каждого игрока в первую клетку
+	obj = JSON.parse(ls.get("players")); // получили объект c игроками
+	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
+	for (i in obj){
+		var player_cell = document.createElement("div"); //див для игрока
+		player_cell.setAttribute('id',"fishka_"+i);
+	cells[0].appendChild(player_cell);
+	};
+	//////////////////////////////////////////////////////////
 	form.show("form_dice");
 	initDice();
 	};

@@ -77,7 +77,7 @@ function currentPlayer(result){
 	victory(obj_pl, obj_mv);
 	}
 	else if(result>1 && position_first==arrCell.length){
-		document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
+		document.getElementById("photo").src = "photos/start.jpg"; //выводим фото
 		document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
 		document.getElementById("player_position").innerHTML = ""; //выводим позицию в окно
 		document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно
@@ -88,7 +88,7 @@ function currentPlayer(result){
 		document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/fail.jpg) 0% 100% no-repeat';
 		}else{
 	// выводим инфу на форму
-	document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
+	document.getElementById("photo").src = "photos/start.jpg"; //выводим фото
 	document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
 	document.getElementById("player_position").innerHTML = position_first; //выводим позицию в окно
 	document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно
@@ -148,7 +148,6 @@ function playersMove(){
 		};
 		ls.set ("move",JSON.stringify(obj_mv)); // записываем новые данные в лс
 	
-	
 	console.log("Игрок", obj_mv.id, "    Кубик:",result,"   Позиция:", position_first, " -> ", position_last || (cell_index+1));
 
 	
@@ -178,14 +177,7 @@ function initDice(){
 	document.getElementById("dice_name").innerHTML = name+" "+surname.charAt(0)+", твой ход, сучка!";
 	document.getElementById("color-header_kosti").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
 	};
-/*	
-function getAllPosition(){
-	obj = JSON.parse(ls.get("players")); // получили объект
-	console.log(obj);
-	for (i=1; i<=objLength(obj); i++){
-		console.log(obj[i].name+";"+obj[i].position);
-		}
-	}*/
+
 // вытаскиваем игрока по индексу
 function getPlayerByIndex(obj, index){
 var i=0;
@@ -202,9 +194,17 @@ if(i===index){delete obj[k]; return obj; };
 i++;
 }};
 
+//получаем уникальный индекс игрока
+function getPlayerUniqueID(obj, index){
+var i=0;
+for(var k in obj){
+if(i===index) return k;
+i++;
+}}
+
 function victory(obj_pl, obj_mv){
 	if(objLength(obj_pl)==1){lastWinner(obj_pl, obj_mv);}else{
-		document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
+		document.getElementById("photo").src = "photos/start.jpg" //выводим фото
 		document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
 		document.getElementById("player_position").innerHTML = ""; //выводим позицию в окно
 		document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно 
@@ -227,3 +227,12 @@ function lastWinner(obj_pl, obj_mv){
 	// вывод картинки из ячейки
 	document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/lastwin.jpg) 0% 100% no-repeat';
 	}
+	
+function moveFishka(players, obj_mv, position_last){
+	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
+	var pleyerInd = getPlayerUniqueID(players, obj_mv);
+	var fishkaCurrent = document.getElementById("fishka_"+pleyerInd);
+	var grobik = fishkaCurrent.parentNode.removeChild(fishkaCurrent);
+    cells[position_last].appendChild(grobik);
+	
+	};
