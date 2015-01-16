@@ -116,6 +116,10 @@ function playersMove(){
 				// Удалит игрока и запишит в лс обьект без текщего игрока
 				console.log("Позиция игрока", (cell_index+1), " выходит за пределы игрового поля. Удаляем игрока");
 				ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
+				// если игрок последний то переводим на первого 
+				if(obj_mv.id==objLength(obj_pl)-1){obj_mv.id=0; ls.set ("move",JSON.stringify(obj_mv));} ;
+				// проверка на самого послденего игрок
+				//if(objLength(obj_pl)==1){lastWinner(obj_pl, obj_mv);};
 				return false;
 			};
 		
@@ -199,6 +203,7 @@ i++;
 }};
 
 function victory(obj_pl, obj_mv){
+	if(objLength(obj_pl)==1){lastWinner(obj_pl, obj_mv);}else{
 		document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
 		document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
 		document.getElementById("player_position").innerHTML = ""; //выводим позицию в окно
@@ -208,4 +213,17 @@ function victory(obj_pl, obj_mv){
 		speak(getPlayerByIndex(obj_pl,obj_mv.id).name+", твою мать. Я так счастлива! Иди слей масло. Только не долго, а то подумают что какаешь."); // говорилк
 		// вывод картинки из победителя
 		document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/win.jpg) 0% 100% no-repeat';
+		}
+	}
+	
+function lastWinner(obj_pl, obj_mv){
+	document.getElementById("photo").src = "photos/start.jpg" //выводим фото
+	document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
+	document.getElementById("player_position").innerHTML = ""; //выводим позицию в окно
+	document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно
+	document.getElementById("player_fant").innerHTML = "Игра окончена! Всем спасибо! Все сводны!"; //выводим выпавший фант в окно
+	speak(getPlayerByIndex(obj_pl,obj_mv.id).name+", мы тебя уже заждались, Последний Герой! Игра окончена, ёпта!"); // говорилка
+	document.getElementById("color-header_player").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
+	// вывод картинки из ячейки
+	document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/lastwin.jpg) 0% 100% no-repeat';
 	}
