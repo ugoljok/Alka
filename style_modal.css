@@ -214,7 +214,17 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 */
 }
 
+.fishka {
 
+	display:block;
+	float:left;
+	width:20px;
+	height:20px;
+	border-radius:16px;
+	margin:2px;
+	box-shadow:1px 1px 1px #9d9d9d;
+
+}
 
 
 
