@@ -140,6 +140,9 @@ function playersMove(){
 		getPlayerByIndex(obj_pl,obj_mv.id).position = position_last; // присваиваем новое значение
 		ls.set ("players",JSON.stringify(obj_pl)); // записываем новые данные в лс
 		
+		// вызываем функцию перемещения фишки
+		moveFishka(players, obj_mv, position_last);
+		
 		//если дошли до последнего id игрока возвращаем значение текщего игрока в 1, если нет +1 к id
 		if(obj_mv.id<objLength(obj_pl)-1){
 			obj_mv.id++;
@@ -149,8 +152,7 @@ function playersMove(){
 		ls.set ("move",JSON.stringify(obj_mv)); // записываем новые данные в лс
 	
 	console.log("Игрок", obj_mv.id, "    Кубик:",result,"   Позиция:", position_first, " -> ", position_last || (cell_index+1));
-	// вызываем функцию перемещения фишки
-	moveFishka(players, obj_mv, position_last);
+	
 
 	
 };
@@ -233,9 +235,10 @@ function lastWinner(obj_pl, obj_mv){
 // функция передвижения фишки игрока	
 function moveFishka(players, obj_mv, position_last){
 	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
-	var pleyerInd = getPlayerUniqueID(players, obj_mv);
+	var pleyerInd = getPlayerUniqueID(players, obj_mv.id);
+	alert(pleyerInd);
 	var fishkaCurrent = document.getElementById("fishka_"+pleyerInd);
 	var grobik = fishkaCurrent.parentNode.removeChild(fishkaCurrent);
-    cells[position_last].appendChild(grobik);
+    cells[position_last-1].appendChild(grobik);
 	
 	};
