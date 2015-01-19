@@ -150,7 +150,7 @@ function playersMove(){
 	
 	console.log("Игрок", obj_mv.id, "    Кубик:",result,"   Позиция:", position_first, " -> ", position_last || (cell_index+1));
 	// вызываем функцию перемещения фишки
-	//moveFishka(players, obj_mv, position_last);
+	moveFishka(players, obj_mv, position_last);
 
 	
 };
