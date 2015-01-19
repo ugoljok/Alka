@@ -109,9 +109,8 @@ function playersMove(){
 	var cell_index = position_first+result-1; // индекс задания
 	var position_last;
 	if((cell_index+1) >= parseInt(arrCell.length)){
-		if(result>1 && position_first==arrCell.length){
-			position_last=1;
-			}else{
+		//if(result>1 && position_first==arrCell.length){
+		if( (result==1 && position_first==arrCell.length) || (position_first < arrCell.length && cell_index+1>arrCell.length) ){
 				// у нас есть победитель!
 				// Удалит игрока и запишит в лс обьект без текщего игрока
 				console.log("Позиция игрока", (cell_index+1), " выходит за пределы игрового поля. Удаляем игрока");
@@ -119,7 +118,7 @@ function playersMove(){
 				// если игрок последний то переводим на первого 
 				if(obj_mv.id==objLength(obj_pl)-1){obj_mv.id=0; ls.set ("move",JSON.stringify(obj_mv));} ;
 				return false;
-			};
+			}else if(position_first == arrCell.length && result>1){position_last=1;}
 		
 	}else{
 		// если указано на сколько клеток надо идти вперед\назад
