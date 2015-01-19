@@ -149,6 +149,8 @@ function playersMove(){
 		ls.set ("move",JSON.stringify(obj_mv)); // записываем новые данные в лс
 	
 	console.log("Игрок", obj_mv.id, "    Кубик:",result,"   Позиция:", position_first, " -> ", position_last || (cell_index+1));
+	// вызываем функцию перемещения фишки
+	//moveFishka(players, obj_mv, position_last);
 
 	
 };
@@ -227,7 +229,8 @@ function lastWinner(obj_pl, obj_mv){
 	// вывод картинки из ячейки
 	document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/lastwin.jpg) 0% 100% no-repeat';
 	}
-	
+
+// функция передвижения фишки игрока	
 function moveFishka(players, obj_mv, position_last){
 	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
 	var pleyerInd = getPlayerUniqueID(players, obj_mv);
