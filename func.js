@@ -118,8 +118,6 @@ function playersMove(){
 				ls.set ("players",JSON.stringify( delPlayerByIndex(players,obj_mv.id) )); 
 				// если игрок последний то переводим на первого 
 				if(obj_mv.id==objLength(obj_pl)-1){obj_mv.id=0; ls.set ("move",JSON.stringify(obj_mv));} ;
-				// проверка на самого послденего игрок
-				//if(objLength(obj_pl)==1){lastWinner(obj_pl, obj_mv);};
 				return false;
 			};
 		
@@ -194,7 +192,12 @@ i++;
 function delPlayerByIndex(obj, index){
 var i=0;
 for(var k in obj){
-if(i===index){delete obj[k]; return obj; };
+if(i===index){
+	delete obj[k]; 
+	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
+	var fishkaCurrent = document.getElementById("fishka_"+k);
+	fishkaCurrent.parentNode.removeChild(fishkaCurrent);
+	return obj; };
 i++;
 }};
 
@@ -236,9 +239,7 @@ function lastWinner(obj_pl, obj_mv){
 function moveFishka(players, obj_mv, position_last){
 	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
 	var pleyerInd = getPlayerUniqueID(players, obj_mv.id);
-	alert(pleyerInd);
 	var fishkaCurrent = document.getElementById("fishka_"+pleyerInd);
 	var grobik = fishkaCurrent.parentNode.removeChild(fishkaCurrent);
     cells[position_last-1].appendChild(grobik);
-	
 	};
