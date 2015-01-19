@@ -88,7 +88,7 @@ function currentPlayer(result){
 		document.getElementById("form_currentPlayer").style.background = '#FFFFFF url(images/fail.jpg) 0% 100% no-repeat';
 		}else{
 	// выводим инфу на форму
-	document.getElementById("photo").src = "photos/start.jpg"; //выводим фото
+	document.getElementById("photo").src = getPlayerByIndex(obj_pl,obj_mv.id).photo; //выводим фото
 	document.getElementById("player_name").innerHTML = getPlayerByIndex(obj_pl,obj_mv.id).name+" "+getPlayerByIndex(obj_pl,obj_mv.id).surname; //выводим имя
 	document.getElementById("player_position").innerHTML = position_first; //выводим позицию в окно
 	document.getElementById("player_kubik").innerHTML = "Тебе выпало число: "+result; //выводим выпавшее число в окно
