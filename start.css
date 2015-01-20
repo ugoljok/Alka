@@ -15,7 +15,7 @@ body, html {
 	margin-left:-400px;
 	background:rgba(255,255,255,1);
 	 overflow-u:auto;}
-	 
+
 #nu_user_add, #nu_user_kill_all, #nu_play {
 	border:none;padding:16px;
 	position:absolute; bottom:1%; left:50%;
@@ -30,11 +30,11 @@ body, html {
 	text-align:center;
 	box-shadow:1px 1px 5px rgba(0,0,0,0.2);
 	background: #2196F3; transition: all 0.32s linear;
-	 
+
 	}
 
 #nu_play { margin-left:-60px; width:120px; background:#4CAF50; font-family:Tahoma, sans-serif; font-size:22px; line-height:24px; }
- #nu_play:hover { text-shadow:0 1px 0px rgba(0,0,0,0.3)} 
+ #nu_play:hover { text-shadow:0 1px 0px rgba(0,0,0,0.3)}
 #nu_user_kill_all {
 
 	bottom:1%;
@@ -43,7 +43,7 @@ body, html {
 	margin-left:-422px;
 	opacity:0.2;
 	}
-#nu_user_kill_all:hover { opacity:0.99}	
+#nu_user_kill_all:hover { opacity:0.99}
 
 #nu_user_add:hover {background:#03A9F4; color:#FFF;  }
 #form_add_user {
@@ -55,11 +55,11 @@ body, html {
 	height:480px;
 	box-shadow:0px 3px 9px rgba(0,0,0,0.3);
 	display:none;
-	
+
 	}
 
 #nu_header { height:128px; background:rgba(102,204,102,1); position:relative; left:0; top:0; width:100%;}
-#nu_photo_container { position:absolute; width:128px; height:128px; left:32px; top:32px; background:rgba(255,255,255,1); box-shadow:0px 3px 4px rgba(0,0,0,0.3); border-radius:128px;}
+#nu_photo_container { position:absolute; width:128px; height:128px; left:32px; top:32px; background:rgba(255,255,255,1); box-shadow:0px 3px 4px rgba(0,0,0,0.3); border-radius:128px; border:1px solid red;}
 #nu_header  h1 { position:absolute; bottom:8px; left:190px; margin:0; padding:0; font-family: Helvetica, Arial, sans-serif; color:#fff}
 #nu_name, #nu_surname { font-size:1.99em; padding:0.3em;   margin:0.3em;}
 
@@ -67,7 +67,7 @@ body, html {
 #nu_okay { background:rgba(51,153,255,1); color:#fff;box-shadow:0px 3px 4px rgba(0,0,0,0.3); padding:20px 50px; margin:15px; border:none; }
 
 
-#nu_photo_canvas, #nu_photo_img, #nu_photo_video { display:none;}
+#nu_photo_canvas, #nu_photo_img, #nu_photo_video { /*display:none;*/}
 
 .nu_player { margin:24px; position:relative; }
 .nu_player_photo { position:absolute; height:68px; width:68px; border-radius:68px; top:-4px; left:-4px;  background:rgba(0,204,255,1); box-shadow:0px 1px 3px #999999;}
@@ -75,3 +75,7 @@ body, html {
 .nu_player_kill { float:right; font-size:30px; color:rgba(204,204,204,1); text-decoration:none; display:block; position:absolute; right:22px; top:15px;}
 .nu_player_kill:hover { color:red}
 
+ #nu_photo_video { border:red 1px solid;}
+ #nu_photo_canvas {border:1px solid green;}
+ #nu_photo_img {border:1px solid blue;}
+ #nu_photo_take {}
