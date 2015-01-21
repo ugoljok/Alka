@@ -55,7 +55,9 @@
 <div id="info_num"></div><br>
 <div id="info_text"></div><br>
 <img id="img" src='' /><br>
-<audio src="http://translate.google.com/translate_tts?ie=UTF-8tl=ru&prev=input" autoplay  id="au"></audio> <!-- говорилка -->
+<!--<audio src="http://translate.google.com/translate_tts?ie=UTF-8tl=ru&prev=input" autoplay  id="au"></audio>  говорилка -->
+<iframe src="http://translate.google.com/translate_tts?tl=RU&q=Привет, уберите детей туда, куда вы их обычно убираете! И начнем играть" width="0" height="0" id="au" border="0"></iframe>
+
 <!-- игровое поле -->
 <div id="playfield"></div>
 <!-- подключае скрипты -->
@@ -67,6 +69,10 @@ var result; // переменная
 form.show("form_start");
 
 //начало игры
+
+document.getElementById("startPlay").onmouseover = function(){ speak("Я буду говорить много и матом! Всё будет заееебись! С вами пъяный Google") }
+//document.getElementById("startPlay").onmouseout = function(){ speak('Ой, бля. Куда же ты??') }
+
 document.getElementById("startPlay").onclick = function (){
 	// Обнуляем у всех позиции
 	clearPosition();
@@ -74,13 +80,18 @@ document.getElementById("startPlay").onclick = function (){
 	// устанавлиеваем дивы для фишек каждого игрока в первую клетку
 	obj = JSON.parse(ls.get("players")); // получили объект c игроками
 	var cells = document.getElementById("playfield").getElementsByClassName('game_cell');
+	all_pls = ""
 	for (i in obj){
 		var player_cell = document.createElement("div"); //див для игрока
 		player_cell.setAttribute('id',"fishka_"+i);
 		player_cell.className = "fishka";
 		player_cell.style.backgroundColor = obj[i].color;
+		all_pls += obj[i].name+'! '
 	cells[0].appendChild(player_cell);
 	};
+	
+	speak("Ребята! " + all_pls + " Я вас люблю!!!")
+	
 	//////////////////////////////////////////////////////////
 	form.show("form_dice");
 	initDice();

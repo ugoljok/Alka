@@ -59,7 +59,8 @@ body, html {
 	}
 
 #nu_header { height:128px; background:rgba(102,204,102,1); position:relative; left:0; top:0; width:100%;}
-#nu_photo_container { position:absolute; width:128px; height:128px; left:32px; top:32px; background:rgba(255,255,255,1); box-shadow:0px 3px 4px rgba(0,0,0,0.3); border-radius:128px; border:1px solid red;}
+#nu_photo_container { position:absolute; width:128px; height:128px; left:32px; top:32px; background:rgba(255,255,255,1); box-shadow:0px 3px 4px rgba(0,0,0,0.3); border-radius:128px; overflow: hidden; text-align:center; border:1px solid #dfdfdf; transition:0.4s linear all;}
+#nu_photo_container:hover { transform:scale(1.8,1.8) }
 #nu_header  h1 { position:absolute; bottom:8px; left:190px; margin:0; padding:0; font-family: Helvetica, Arial, sans-serif; color:#fff}
 #nu_name, #nu_surname { font-size:1.99em; padding:0.3em;   margin:0.3em;}
 
@@ -67,7 +68,7 @@ body, html {
 #nu_okay { background:rgba(51,153,255,1); color:#fff;box-shadow:0px 3px 4px rgba(0,0,0,0.3); padding:20px 50px; margin:15px; border:none; }
 
 
-#nu_photo_canvas, #nu_photo_img, #nu_photo_video { /*display:none;*/}
+#nu_photo_canvas, #nu_photo_img { /*display:none;*/}
 
 .nu_player { margin:24px; position:relative; }
 .nu_player_photo { position:absolute; height:68px; width:68px; border-radius:68px; top:-4px; left:-4px;  background:rgba(0,204,255,1); box-shadow:0px 1px 3px #999999;}
@@ -75,7 +76,8 @@ body, html {
 .nu_player_kill { float:right; font-size:30px; color:rgba(204,204,204,1); text-decoration:none; display:block; position:absolute; right:22px; top:15px;}
 .nu_player_kill:hover { color:red}
 
- #nu_photo_video { border:red 1px solid;}
- #nu_photo_canvas {border:1px solid green;}
- #nu_photo_img {border:1px solid blue;}
- #nu_photo_take {}
+ #nu_photo_video { }
+ #nu_photo_canvas {}
+ #nu_photo_img {}
+ #nu_photo_take { display: block; border:none; background: rgba(51,153,255,1); color:#fff; width:100%; padding:15px 6px; padding-top:5px; transition:0.2s linear all;}
+ #nu_photo_take:hover { background: rgba(102,204,102,1);};

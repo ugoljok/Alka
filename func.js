@@ -9,7 +9,8 @@ function objLength(obj){
 
 //Говорилка
 function speak(text){
-   	var url = 'http://translate.google.com/translate_tts?ie=UTF-8&q=' + decodeURIComponent(text)+ '&tl=ru&prev=input';	
+   	var url = 'http://translate.google.com/translate_tts?tl=RU&q='+decodeURIComponent(text)
+	//'http://translate.google.com/translate_tts?ie=UTF-8&q=' + decodeURIComponent(text)+ '&tl=ru';	
     document.getElementById("au").src=url;
 };
 
@@ -176,6 +177,7 @@ function initDice(){
 	var surname = getPlayerByIndex(obj_pl,obj_mv.id).surname;
 	//alert(name);
 	document.getElementById("dice_name").innerHTML = name+" "+surname.charAt(0)+", твой ход, сучка!";
+	//speak(name+" "+surname+", твой ход!");
 	document.getElementById("color-header_kosti").style.background=getPlayerByIndex(obj_pl,obj_mv.id).color;
 	};
 

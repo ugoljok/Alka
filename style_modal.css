@@ -144,7 +144,9 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 .game_cell:nth-child(12n+1):hover, .game_cell:nth-child(1):hover { transform: scale(2,2)  translate(25%,25%);}
 .game_cell:nth-child(96n):hover   {  transform:scale(2,2)  translate(0,25%)}
 .text_cell { z-index: 1; position:absolute;
-	text-shadow:1px 1px 0 #fff, -1px 1px 0 #fff, 0px 1px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, -1px -1px 0 #fff ; }
+	text-shadow:1px 1px 0 #fff, -1px 1px 0 #fff, 0px 1px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, -1px -1px 0 #fff ;
+opacity:0.8;
+	}
 
 .img_cell {
 	width: 100%;
@@ -218,13 +220,27 @@ body { font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaV
 
 	display:block;
 	float:left;
-	width:20px;
-	height:20px;
-	border-radius:16px;
+	width:30px;
+	height:30px;
+	border-radius:30px;
 	margin:2px;
 	box-shadow:1px 1px 1px #9d9d9d;
+	z-index:2;
+	opacity:0.9;
+	position:absolute;
+	z-index:2;
 
 }
+
+.game_cell>.fishka:nth-child(0) {left:0; top:0;}
+.game_cell>.fishka:nth-child(4) {left:5%; top:5%;}
+.game_cell>.fishka:nth-child(5) {left:10%; top:10%;}
+.game_cell>.fishka:nth-child(6) {left:15%; top:15%;}
+.game_cell>.fishka:nth-child(7) {left:20%; top:20%;}
+.game_cell>.fishka:nth-child(8) {left:25%; top:25%;}
+.game_cell>.fishka:nth-child(9) {left:30%; top:30%;}
+.game_cell>.fishka:nth-child(10) {left:35%; top:35%;}
+
 
 
 
